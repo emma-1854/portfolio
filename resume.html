@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emmanuel Moro - CV</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --gray: #7f8c8d;
+            --light-gray: #bdc3c7;
+        }
+
+        body {
+            background: linear-gradient(135deg, #ecf0f1 0%, #bdc3c7 100%);
+            color: var(--dark);
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+
+        .header-content {
+            flex: 1;
+            padding-right: 20px;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--primary);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .title {
+            font-size: 1.3rem;
+            color: var(--secondary);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        .contact-item i {
+            color: var(--primary);
+            width: 16px;
+        }
+
+        .cv-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .sidebar {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            height: fit-content;
+        }
+
+        .main-content {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--light-gray);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--secondary);
+        }
+
+        .personal-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .detail-item {
+            margin-bottom: 10px;
+        }
+
+        .detail-label {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .detail-value {
+            color: var(--dark);
+        }
+
+        .education-item {
+            margin-bottom: 20px;
+            padding-left: 20px;
+            border-left: 3px solid var(--secondary);
+        }
+
+        .education-date {
+            font-weight: 600;
+            color: var(--secondary);
+            margin-bottom: 5px;
+        }
+
+        .education-title {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .education-institution {
+            color: var(--gray);
+            font-style: italic;
+        }
+
+        .experience-item {
+            margin-bottom: 20px;
+            padding-left: 20px;
+            border-left: 3px solid var(--accent);
+        }
+
+        .experience-date {
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 5px;
+        }
+
+        .experience-title {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .experience-company {
+            color: var(--gray);
+            font-style: italic;
+        }
+
+        .skills-list {
+            list-style: none;
+        }
+
+        .skill-item {
+            margin-bottom: 15px;
+        }
+
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            font-size: 0.95rem;
+        }
+
+        .skill-bar {
+            height: 8px;
+            background: var(--light-gray);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .skill-level {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 4px;
+        }
+
+        .referees-list {
+            list-style: none;
+        }
+
+        .referee-item {
+            margin-bottom: 15px;
+            padding: 15px;
+            background: var(--light);
+            border-radius: 8px;
+        }
+
+        .referee-name {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .referee-phone {
+            color: var(--gray);
+        }
+
+        .interests-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .interest-item {
+            background: var(--light);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .declaration {
+            padding: 20px;
+            background: var(--light);
+            border-radius: 8px;
+            margin-top: 30px;
+            font-style: italic;
+        }
+
+        .download-section {
+            text-align: center;
+            margin: 40px 0;
+            width: 100%;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 30px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(44, 62, 80, 0.3);
+            font-size: 1.1rem;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(44, 62, 80, 0.4);
+        }
+
+        .btn i {
+            font-size: 1.2rem;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            padding: 20px;
+            color: var(--gray);
+            font-size: 0.9rem;
+            width: 100%;
+        }
+
+        /* PDF-specific styles to ensure all content appears */
+        .pdf-content {
+            /* This class ensures proper rendering in PDF */
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+            
+            header {
+                flex-direction: column-reverse;
+                text-align: center;
+                padding: 25px 20px;
+            }
+            
+            .header-content {
+                padding-right: 0;
+                width: 100%;
+            }
+            
+            .profile-img {
+                width: 120px;
+                height: 120px;
+                margin: 0 auto 20px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .title {
+                font-size: 1.1rem;
+            }
+            
+            .contact-info {
+                justify-content: center;
+                gap: 10px;
+            }
+            
+            .contact-item {
+                font-size: 0.9rem;
+            }
+            
+            .cv-content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .sidebar, .main-content {
+                padding: 20px;
+            }
+            
+            .section-title {
+                font-size: 1.3rem;
+            }
+            
+            .personal-details {
+                grid-template-columns: 1fr;
+            }
+            
+            .btn {
+                width: 90%;
+                justify-content: center;
+                padding: 15px 25px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 20px 15px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .title {
+                font-size: 1rem;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 8px;
+            }
+            
+            .sidebar, .main-content {
+                padding: 15px;
+            }
+            
+            .section-title {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Print/PDF Styles - Critical for PDF generation */
+        @media print {
+            body {
+                background: white !important;
+                padding: 0 !important;
+                font-size: 12px !important;
+                margin: 0 !important;
+                width: 100% !important;
+            }
+            
+            .container {
+                max-width: 100% !important;
+                margin: 0 !important;
+                box-shadow: none !important;
+                padding: 0 !important;
+            }
+            
+            header, .sidebar, .main-content {
+                box-shadow: none !important;
+                border: 1px solid #ddd !important;
+                margin-bottom: 15px !important;
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+                width: 100% !important;
+            }
+            
+            .download-section, .btn {
+                display: none !important;
+            }
+            
+            .profile-img {
+                width: 100px !important;
+                height: 100px !important;
+            }
+            
+            h1 {
+                font-size: 1.8rem !important;
+            }
+            
+            .title {
+                font-size: 1.1rem !important;
+            }
+            
+            .section-title {
+                font-size: 1.3rem !important;
+            }
+            
+            .cv-content {
+                display: block !important;
+                width: 100% !important;
+            }
+            
+            .sidebar {
+                float: left !important;
+                width: 35% !important;
+                margin-right: 5% !important;
+            }
+            
+            .main-content {
+                float: left !important;
+                width: 60% !important;
+            }
+            
+            /* Ensure no content is cut off */
+            .section {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+            
+            /* Force full content visibility */
+            * {
+                overflow: visible !important;
+                max-height: none !important;
+            }
+        }
+
+        /* Loading indicator for PDF generation */
+        #pdf-loading {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-size: 1.5rem;
+        }
+
+        .spinner {
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid var(--primary);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div id="pdf-loading">
+        <div class="spinner"></div>
+        <p>Generating PDF...</p>
+    </div>
+
+    <div class="container pdf-content" id="cv-content">
+        <header>
+            <div class="header-content">
+                <h1>EMMANUEL MWITA MORO</h1>
+                <p class="title">Cybersecurity Student</p>
+                <p>Cybersecurity and IT professional with a strong foundation in penetration testing, network troubleshooting, and system administration, combined with skills in secure web application development. I aim to contribute to safeguarding digital systems while designing and maintaining reliable IT and web solutions. Seeking an opportunity to apply my expertise, expand my technical skills, and grow within a forward-thinking organization.</p>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>emmanuelmoro220@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+255 613890410</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Msongola, Dar es Salaam</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-home"></i>
+                        <span>P.O. Box 2798, Njiro Hill</span>
+                    </div>
+                </div>
+            </div>
+            <img src="profile.jpg" alt="Emmanuel Moro" class="profile-img">
+        </header>
+        
+        <div class="cv-content">
+            <aside class="sidebar">
+                <div class="section">
+                    <h2 class="section-title">Personal Details</h2>
+                    <div class="personal-details">
+                        <div class="detail-item">
+                            <div class="detail-label">Date of Birth</div>
+                            <div class="detail-value">11 January 2002</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Gender</div>
+                            <div class="detail-value">Male</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Marital Status</div>
+                            <div class="detail-value">Single</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Nationality</div>
+                            <div class="detail-value">Tanzania</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h2 class="section-title">Skills</h2>
+                    <ul class="skills-list">
+                        <li class="skill-item">
+                            <div class="skill-name">
+                                <span>Python</span>
+                                <span>70%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 70%;"></div>
+                            </div>
+                        </li>
+                        <li class="skill-item">
+                            <div class="skill-name">
+                                <span>JavaScript</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 85%;"></div>
+                            </div>
+                        </li>
+                        <li class="skill-item">
+                            <div class="skill-name">
+                                <span>Html and Css</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 95%;"></div>
+                            </div>
+                        </li>
+                        <li class="skill-item">
+                            <div class="skill-name">
+                                <span>Communication</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 95%;"></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="section">
+                    <h2 class="section-title">Languages</h2>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>English</span>
+                            <span>Fluent</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Swahili</span>
+                            <span>Native</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 100%;"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h2 class="section-title">Interests</h2>
+                    <div class="interests-list">
+                        <span class="interest-item">Reading Books</span>
+                        <span class="interest-item">Entrepreneurship</span>
+                        <span class="interest-item">Cybersecurity</span>
+                        <span class="interest-item">Digital Marketing</span>
+                        <span class="interest-item">Networking</span>
+                    </div>
+                </div>
+            </aside>
+            
+            <main class="main-content">
+                <div class="section">
+                    <h2 class="section-title">Career Objective</h2>
+                    <p>I aim to build a career in cybersecurity, IT, and web development within a forward-thinking organization that will allow me to apply my expertise, develop new skills, and contribute to safeguarding digital systems while supporting innovative technology solutions.</p>
+                </div>
+                
+                <div class="section">
+                    <h2 class="section-title">Education</h2>
+                    <div class="education-item">
+                        <div class="education-date">2022 - 2025</div>
+                        <div class="education-title">Bachelor in Cyber Security</div>
+                        <div class="education-institution">Institute of Accountancy Arusha, Arusha</div>
+                    </div>
+                    
+                    <div class="education-item">
+                        <div class="education-date">2020 - 2022</div>
+                        <div class="education-title">Advanced Certificate of Secondary Education</div>
+                        <div class="education-institution">Milambo Secondary School, Tabora</div>
+                    </div>
+                    
+                    <div class="education-item">
+                        <div class="education-date">2016 - 2019</div>
+                        <div class="education-title">Certificate of Secondary Education</div>
+                        <div class="education-institution">Msongola Secondary School, Dar es Salaam</div>
+                    </div>
+                    
+                    <div class="education-item">
+                        <div class="education-date">2009 - 2015</div>
+                        <div class="education-title">Primary Education Certificate</div>
+                        <div class="education-institution">Kitunda Primary School, Dar es Salaam</div>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h2 class="section-title">Experience</h2>
+                    <div class="experience-item">
+                        <div class="experience-date">August- September 2025</div>
+                        <div class="experience-title">website development</div>
+                        <div class="experience-company">Bestwisemyth company</div>
+                    </div>
+                    
+                    <div class="experience-item">
+                        <div class="experience-date">July - September 2024</div>
+                        <div class="experience-title">Network Security Intern</div>
+                        <div class="experience-company">Sea Cliff Hotel, Dar es Salaam</div>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h2 class="section-title">Personal Skills</h2>
+                    <ul style="padding-left: 20px;">
+                        <li>Willing to adapt, interact, fast learner and hard worker</li>
+                        <li>Strong communication skills in both oral and written English and Swahili</li>
+                        <li>Ability to explain complex topics in simple terms</li>
+                        <li>Strong active listening and empathy</li>
+                        <li>Confident public speaking and presentation skills</li>
+                    </ul>
+                </div>
+                
+                <div class="section">
+                    <h2 class="section-title">Referees</h2>
+                    <ul class="referees-list">
+                        <li class="referee-item">
+                            <div class="referee-name">Mr. Daniel Mwita</div>
+                            <div class="referee-phone">Phone: +255 743292581</div>
+                        </li>
+                        <li class="referee-item">
+                            <div class="referee-name">Mr. David Misiwa</div>
+                            <div class="referee-phone">Phone: +255 712126989</div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="declaration">
+                    <p>I certify that the information that I have provided above is true, and I will be responsible for any undesired issue that might happen.</p>
+                </div>
+            </main>
+        </div>
+        
+        <div class="download-section">
+            <button class="btn" id="downloadBtn">
+                <i class="fas fa-download"></i> Download PDF Version
+            </button>
+        </div>
+        
+        <footer>
+            <p>© 2023 Emmanuel Moro. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        document.getElementById('downloadBtn').addEventListener('click', function() {
+            // Show loading indicator
+            const loading = document.getElementById('pdf-loading');
+            loading.style.display = 'flex';
+            
+            // Get the element to convert to PDF
+            const element = document.getElementById('cv-content');
+            
+            // PDF options with improved settings
+            const options = {
+                margin: [10, 10, 10, 10],
+                filename: 'Emmanuel_Moro_CV.pdf',
+                image: { 
+                    type: 'jpeg', 
+                    quality: 0.98 
+                },
+                html2canvas: { 
+                    scale: 2,
+                    useCORS: true,
+                    letterRendering: true,
+                    scrollX: 0,
+                    scrollY: 0,
+                    windowWidth: document.documentElement.offsetWidth,
+                    windowHeight: document.documentElement.offsetHeight
+                },
+                jsPDF: { 
+                    unit: 'mm', 
+                    format: 'a4', 
+                    orientation: 'portrait' 
+                },
+                pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
+            };
+            
+            // Generate PDF with improved error handling
+            html2pdf().set(options).from(element).save().then(() => {
+                // Hide loading indicator when done
+                loading.style.display = 'none';
+            }).catch(error => {
+                console.error('PDF generation error:', error);
+                loading.style.display = 'none';
+                alert('There was an error generating the PDF. Please try again.');
+            });
+        });
+    </script>
+</body>
+</html>
