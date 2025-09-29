@@ -288,59 +288,67 @@
       opacity: 0;
     }
 
-    /* Terminal Effect */
-    .terminal {
-      background: rgba(15, 23, 42, 0.8);
-      border: 1px solid rgba(14, 165, 233, 0.2);
-      border-radius: 10px;
-      padding: 25px;
-      margin-top: 40px;
-      max-width: 600px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    }
+   /* Terminal Effect */
+.terminal {
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(14, 165, 233, 0.2);
+  border-radius: 10px;
+  padding: 15px;          /* reduced padding for small screens */
+  margin-top: 40px;
+  width: 100%;            /* full width on small screens */
+  max-width: 600px;       /* still constrain on desktop */
+  box-sizing: border-box; /* include padding in width */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  overflow-x: auto;       /* horizontal scroll if something overflows */
+}
 
-    .terminal-header {
-      display: flex;
-      align-items: center;
-      margin-bottom: 20px;
-    }
+.terminal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  flex-wrap: wrap;        /* allow wrapping on mobile */
+}
 
-    .terminal-dots {
-      display: flex;
-      gap: 8px;
-      margin-right: 15px;
-    }
+.terminal-dots {
+  display: flex;
+  gap: 8px;
+  margin-right: 15px;
+}
 
-    .terminal-dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-    }
+.terminal-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
 
-    .dot-red { background: #ff5f56; }
-    .dot-yellow { background: #ffbd2e; }
-    .dot-green { background: #27c93f; }
+.dot-red { background: #ff5f56; }
+.dot-yellow { background: #ffbd2e; }
+.dot-green { background: #27c93f; }
 
-    .terminal-title {
-      color: var(--gray);
-      font-family: 'Roboto Mono', monospace;
-      font-size: 0.9rem;
-    }
+.terminal-title {
+  color: var(--gray);
+  font-family: 'Roboto Mono', monospace;
+  font-size: 0.9rem;
+  word-break: break-word;  /* wrap long title */
+}
 
-    .terminal-body {
-      font-family: 'Roboto Mono', monospace;
-      color: var(--light);
-      line-height: 1.8;
-    }
+.terminal-body {
+  font-family: 'Roboto Mono', monospace;
+  color: var(--light);
+  line-height: 1.8;
+  white-space: pre-wrap;   /* wrap long lines */
+  word-wrap: break-word;   /* break very long words if needed */
+}
 
-    .terminal-line {
-      margin-bottom: 10px;
-    }
+.terminal-line {
+  margin-bottom: 10px;
+}
 
-    .terminal-prompt {
-      color: var(--accent);
-      margin-right: 10px;
-    }
+.terminal-prompt {
+  color: var(--accent);
+  margin-right: 10px;
+}
 
     /* About Section */
     .about {
@@ -856,32 +864,33 @@
         <!-- Project 1 -->
         <div class="project-card">
           <div class="project-image" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);">
-            <i class="fas fa-shield-alt" style="color: var(--primary); font-size: 4rem;"></i>
+            <i class="fas fa-lock" style="color: var(--primary); font-size: 4rem;"></i>
           </div>
           <div class="project-content">
-            <h3>Network security</h3>
-            <p>I can test networks for weaknesses, protect data, and keep systems secure.</p>
+            <h3>Cyber security</h3>
+            <p>Skilled in finding, fixing, and preventing security risks in networks, systems, and applications.</p>
             <div class="project-tags">
-              <span class="project-tag">Firewalls</span>
-              <span class="project-tag"> Encryption</span>
-              <span class="project-tag"> Authentication</span>
+              <span class="project-tag">Penetration Testing</span>
+              <span class="project-tag"> Network Security</span>
+              <span class="project-tag"> Digital forensics </span>
             </div>
             <a href="#" class="btn btn-outline">View Details</a>
           </div>
         </div>
         
-        <!-- Project 2 -->
+         <!-- Project 2 -->
         <div class="project-card">
           <div class="project-image" style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);">
-            <i class="fas fa-lock" style="color: var(--accent); font-size: 4rem;"></i>
+            <i class="fas fa-envelope" style="color: var(--accent); font-size: 4rem;"></i>
           </div>
           <div class="project-content">
-            <h3>penetration testing</h3>
-            <p>Capable of finding and fixing security weaknesses in networks and other many systems.</p>
+            <h3>Digital Marketing</h3>
+            <p>Skilled in promoting brands online through SEO, social media, content creation, and email campaigns.</p>
             <div class="project-tags">
-              <span class="project-tag">network</span>
-              <span class="project-tag">websites</span>
-              <span class="project-tag">systems</span>
+              <span class="project-tag">Search Engine Optimization (SEO)</span>
+              <span class="project-tag">Social Media Marketing (SMM)</span>
+              <span class="project-tag">Content Marketing</span>
+              <span class="project-tag">Email Marketing</span>
             </div>
             <a href="#" class="btn btn-outline">View Details</a>
           </div>
@@ -893,12 +902,13 @@
             <i class="fas fa-globe" style="color: #8b5cf6; font-size: 4rem;"></i>
           </div>
           <div class="project-content">
-            <h3>Job application web system</h3>
-            <p>A web system that allows users to register, upload their CVs, and track their application status.</p>
+            <h3>Web Development</h3>
+            <p>Skilled in building complete web applications, from interactive frontends to secure backends and efficient databases.</p>
             <div class="project-tags">
-              <span class="project-tag">login</span>
-              <span class="project-tag">register</span>
-              <span class="project-tag">apply</span>
+              <span class="project-tag">Frontend Development</span>
+              <span class="project-tag">Backend Development</span>
+              <span class="project-tag">Database Management</span>
+              <span class="project-tag">Web Hosting & Deployment</span>
             </div>
             <a href="#" class="btn btn-outline">View Details</a>
           </div>
