@@ -265,14 +265,18 @@
       max-width: 650px;
     }
 
-    .hero h2 {
-  font-size: clamp(1.8rem, 5vw, 3.8rem); /* scales from 1.8rem on mobile to 3.8rem on desktop */
-  line-height: 1.2;                      /* prevents text from being too tall */
+   .hero h2 {
+  font-size: clamp(1.8rem, 5vw, 3.8rem);
+  line-height: 1.2;
   margin-bottom: 20px;
   color: white;
   animation: fadeInUp 1s ease;
-  word-break: break-word;                 /* wrap long text */
+  
+  word-break: normal;       /* prevent breaking mid-word */
+  overflow-wrap: break-word; /* allow wrapping only at word boundaries */
+  hyphens: auto;            /* optional: allow hyphenation in supported browsers */
 }
+
 
 
     .hero h2::after {
