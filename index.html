@@ -247,39 +247,46 @@
     }
 
     /* Hero Section */
-    .hero {
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      position: relative;
-      overflow: hidden;
-      padding-top: 80px;
-    }
+   .hero {
+  min-height: 80vh;        /* flexible height for mobile */
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding: 80px 20px;      /* horizontal padding for small screens */
+  box-sizing: border-box;  /* include padding in height calculations */
+}
+
+
 
     .hero-content {
       position: relative;
       z-index: 1;
-      max-width: 300px;
+      max-width: 650px;
     }
 
     .hero h2 {
-      font-size: 3.8rem;
-      margin-bottom: 20px;
-      color: white;
-      animation: fadeInUp 1s ease;
-    }
+  font-size: clamp(1.8rem, 5vw, 3.8rem); /* scales from 1.8rem on mobile to 3.8rem on desktop */
+  line-height: 1.2;                      /* prevents text from being too tall */
+  margin-bottom: 20px;
+  color: white;
+  animation: fadeInUp 1s ease;
+  word-break: break-word;                 /* wrap long text */
+}
+
 
     .hero h2::after {
       display: none;
     }
 
     .hero p {
-      font-size: 1.3rem;
-      margin-bottom: 40px;
-      color: var(--gray);
-      animation: fadeInUp 1s ease 0.2s forwards;
-      opacity: 0;
-    }
+  font-size: clamp(1rem, 3vw, 1.3rem); /* scales paragraph text on smaller devices */
+  margin-bottom: 40px;
+  color: var(--gray);
+  animation: fadeInUp 1s ease 0.2s forwards;
+  opacity: 0;
+}
+
 
     .hero-btns {
       display: flex;
@@ -330,7 +337,7 @@
     .terminal-body {
       font-family: 'Roboto Mono', monospace;
       color: var(--light);
-      line-height: 1.2;
+      line-height: 1.8;
     }
 
     .terminal-line {
@@ -781,6 +788,7 @@
     <div class="container">
       <div class="hero-content">
         <h2>Cybersecurity Specialist & web Developer</h2>
+        <p>I perform penetration testing, develop secure websites, and protect networks from cyber threats.</p>
         
       
         
