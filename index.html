@@ -289,7 +289,59 @@
     }
 
    /* Terminal Effect */
+    .terminal {
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(14, 165, 233, 0.2);
+      border-radius: 10px;
+      padding: 25px;
+      margin-top: 40px;
+      max-width: 600px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
 
+    .terminal-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .terminal-dots {
+      display: flex;
+      gap: 8px;
+      margin-right: 15px;
+    }
+
+    .terminal-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+
+    .dot-red { background: #ff5f56; }
+    .dot-yellow { background: #ffbd2e; }
+    .dot-green { background: #27c93f; }
+
+    .terminal-title {
+      color: var(--gray);
+      font-family: 'Roboto Mono', monospace;
+      font-size: 0.9rem;
+    }
+
+    .terminal-body {
+      font-family: 'Roboto Mono', monospace;
+      color: var(--light);
+      line-height: 1.8;
+    }
+
+    .terminal-line {
+      margin-bottom: 10px;
+    }
+
+    .terminal-prompt {
+      color: var(--accent);
+      margin-right: 10px;
+    }
+    
     /* About Section */
     .about {
       position: relative;
