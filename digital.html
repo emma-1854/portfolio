@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Digital Marketing Projects</title>
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --accent:#2563eb;
+      --muted:#94a3b8;
+      --white:#e6eef8;
+      --tag-bg: rgba(255,255,255,0.05);
+    }
+    *{box-sizing:border-box;}
+    body{
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial;
+      margin:0;
+      background:linear-gradient(180deg, #091025 0%, #071022 100%);
+      color:var(--white);
+      padding:20px;
+    }
+
+    h1{text-align:center; margin-bottom:32px; font-size:26px;}
+
+    .projects{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+      gap:24px;
+      max-width:1100px;
+      margin:0 auto;
+    }
+
+    .project{
+      background:var(--card);
+      border-radius:14px;
+      overflow:hidden;
+      box-shadow:0 6px 18px rgba(2,6,23,0.6);
+      display:flex;
+      flex-direction:column;
+      transition:transform .2s ease;
+    }
+    .project:hover{transform:translateY(-4px)}
+
+    .project img{width:100%; height:180px; object-fit:cover;}
+
+    .content{padding:16px; flex:1; display:flex; flex-direction:column; justify-content:space-between}
+    .content h3{margin:0 0 8px 0;font-size:18px}
+    .content p{margin:0 0 14px 0;color:var(--muted);line-height:1.45;font-size:14px}
+
+    .status{display:inline-block;padding:6px 10px;border-radius:999px;font-size:12px;background:var(--tag-bg);margin-bottom:10px;}
+    .planned{color:#3b82f6;background:rgba(59,130,246,0.15)}
+
+    .btn{display:inline-block;padding:10px 14px;border-radius:10px;background:linear-gradient(90deg,var(--accent),#7c3aed);color:var(--white);text-decoration:none;text-align:center;font-size:14px;}
+
+    @media(max-width:520px){h1{font-size:22px;}.project img{height:150px;}.content p{font-size:13px}}
+  </style>
+</head>
+<body>
+
+  <h1>Digital Marketing Projects</h1>
+
+  <div class="projects">
+
+    <!-- SEO Project -->
+    <div class="project">
+      <img src="https://images.unsplash.com/photo-1581093588401-1f58f4465c41?auto=format&fit=crop&w=900&q=60" alt="SEO Project">
+      <div class="content">
+        <div>
+          <span class="status planned">Planned</span>
+          <h3>SEO Project</h3>
+          <p>Optimizing website content and structure to improve search engine rankings and drive organic traffic.</p>
+        </div>
+        <a class="btn" href="#">Planned</a>
+      </div>
+    </div>
+
+    <!-- Social Media Marketing Project -->
+    <div class="project">
+      <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=60" alt="Social Media Marketing Project">
+      <div class="content">
+        <div>
+          <span class="status planned">Planned</span>
+          <h3>Social Media Campaign</h3>
+          <p>Creating and managing content for social platforms to increase engagement and brand awareness.</p>
+        </div>
+        <a class="btn" href="#">Planned</a>
+      </div>
+    </div>
+
+    <!-- Content Marketing Project -->
+    <div class="project">
+      <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=900&q=60" alt="Content Marketing Project">
+      <div class="content">
+        <div>
+          <span class="status planned">Planned</span>
+          <h3>Content Marketing</h3>
+          <p>Developing blogs, videos, and graphics to engage audiences and promote your brand effectively.</p>
+        </div>
+        <a class="btn" href="#">Planned</a>
+      </div>
+    </div>
+
+    <!-- Email Marketing Project -->
+    <div class="project">
+      <img src="https://images.unsplash.com/photo-1581091012184-73f0d51e92f0?auto=format&fit=crop&w=900&q=60" alt="Email Marketing Project">
+      <div class="content">
+        <div>
+          <span class="status planned">Planned</span>
+          <h3>Email Marketing</h3>
+          <p>Designing newsletters and campaigns to nurture leads and maintain customer engagement.</p>
+        </div>
+        <a class="btn" href="#">Planned</a>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
