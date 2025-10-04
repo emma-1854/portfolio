@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My Web Projects</title>
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --accent:#2563eb;
+      --muted:#94a3b8;
+      --white:#e6eef8;
+      --tag-bg: rgba(255,255,255,0.05);
+    }
+    *{box-sizing:border-box;}
+    body{
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial;
+      margin:0;
+      background:linear-gradient(180deg, #091025 0%, #071022 100%);
+      color:var(--white);
+      padding:20px;
+    }
+
+    h1{
+      text-align:center;
+      margin-bottom:32px;
+      font-size:26px;
+    }
+
+    .projects{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+      gap:24px;
+      max-width:1100px;
+      margin:0 auto;
+    }
+
+    .project{
+      background:var(--card);
+      border-radius:14px;
+      overflow:hidden;
+      box-shadow:0 6px 18px rgba(2,6,23,0.6);
+      display:flex;
+      flex-direction:column;
+      transition:transform .2s ease;
+    }
+    .project:hover{transform:translateY(-4px)}
+
+    .project img{
+      width:100%;
+      height:180px;
+      object-fit:cover;
+    }
+
+    .content{padding:16px;flex:1;display:flex;flex-direction:column;justify-content:space-between}
+    .content h3{margin:0 0 8px 0;font-size:18px}
+    .content p{margin:0 0 14px 0;color:var(--muted);line-height:1.45;font-size:14px}
+
+    .status{
+      display:inline-block;
+      padding:6px 10px;
+      border-radius:999px;
+      font-size:12px;
+      background:var(--tag-bg);
+      margin-bottom:10px;
+    }
+    .live{color:#10b981;background:rgba(16,185,129,0.15)}
+    .soon{color:#fbbf24;background:rgba(251,191,36,0.15)}
+
+    .btn{
+      display:inline-block;
+      padding:10px 14px;
+      border-radius:10px;
+      background:linear-gradient(90deg,var(--accent),#7c3aed);
+      color:var(--white);
+      text-decoration:none;
+      text-align:center;
+      font-size:14px;
+    }
+
+    @media(max-width:520px){
+      h1{font-size:22px;}
+      .project img{height:150px;}
+      .content p{font-size:13px;}
+    }
+  </style>
+</head>
+<body>
+
+  <h1>My Web Projects</h1>
+
+  <div class="projects">
+
+    <!-- BestWiseMyth -->
+    <div class="project">
+      <img src="https://images.unsplash.com/photo-1525186402429-b4ff38bedbec?auto=format&fit=crop&w=900&q=60" alt="BestWiseMyth Website">
+      <div class="content">
+        <div>
+          <span class="status live">Live</span>
+          <h3>BestWiseMyth</h3>
+          <p>A cybersecurity awareness platform built to educate users on online safety and digital protection techniques.</p>
+        </div>
+        <a class="btn" href="https://bestwisemyth.com" target="_blank" rel="noopener noreferrer">Visit Site</a>
+      </div>
+    </div>
+
+    <!-- Tourism Website -->
+    <div class="project">
+      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=60" alt="Tourism Website">
+      <div class="content">
+        <div>
+          <span class="status soon">Coming Soon</span>
+          <h3>Tourism Website</h3>
+          <p>An upcoming platform designed to showcase tourist destinations and promote local travel experiences.</p>
+        </div>
+        <a class="btn" href="#">Coming Soon</a>
+      </div>
+    </div>
+
+    <!-- School Management Website -->
+    <div class="project">
+      <img src="https://images.unsplash.com/photo-1596495577886-d920f1fb7238?auto=format&fit=crop&w=900&q=60" alt="School Management Website">
+      <div class="content">
+        <div>
+          <span class="status soon">Coming Soon</span>
+          <h3>School Management Website</h3>
+          <p>A digital platform aimed at connecting students, teachers, and administrators for seamless communication and academic management.</p>
+        </div>
+        <a class="btn" href="#">Coming Soon</a>
+      </div>
+    </div>
+
+    <!-- Job Application Website -->
+    <div class="project">
+      <img src="https://images.unsplash.com/photo-1605902711622-cfb43c4437d1?auto=format&fit=crop&w=900&q=60" alt="Job Application Website">
+      <div class="content">
+        <div>
+          <span class="status soon">Coming Soon</span>
+          <h3>Job Application Website</h3>
+          <p>A web platform where users can apply for jobs, upload their CVs, and track application results easily.</p>
+        </div>
+        <a class="btn" href="#">Coming Soon</a>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
