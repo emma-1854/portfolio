@@ -679,29 +679,60 @@
       margin-bottom: 40px;
     }
 
-    .social-links {
-      display: flex;
-      gap: 20px;
-    }
+    /* Base styles (keep as is) */
+.social-links {
+  display: flex;
+  gap: 20px;
+}
 
-    .social-link {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      background: rgba(14, 165, 233, 0.1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: var(--transition);
-      color: var(--light);
-      font-size: 1.3rem;
-    }
+.social-link {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(14, 165, 233, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+  color: var(--light);
+  font-size: 1.3rem;
+}
 
-    .social-link:hover {
-      background: var(--primary);
-      transform: translateY(-5px);
-      color: white;
-    }
+/* Hover effect (optional: same for all) */
+.social-link:hover {
+  transform: translateY(-5px);
+  color: white;
+}
+
+/* Individual social media colors */
+.social-links a:nth-child(1) { /* LinkedIn */
+  background: #0077b5;
+}
+.social-links a:nth-child(1):hover {
+  background: #005983;
+}
+
+.social-links a:nth-child(2) { /* GitHub */
+  background: #333;
+}
+.social-links a:nth-child(2):hover {
+  background: #000;
+}
+
+.social-links a:nth-child(3) { /* X / Twitter */
+  background: #1da1f2;
+}
+.social-links a:nth-child(3):hover {
+  background: #0d8ddb;
+}
+
+.social-links a:nth-child(4) { /* Instagram */
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
+}
+.social-links a:nth-child(4):hover {
+  opacity: 0.9;
+}
+
 
     .copyright {
       text-align: center;
